@@ -57,6 +57,7 @@ public class HelloWorld extends PApplet
 			// 3 is the maximum zoom level for working offline
 			zoomLevel = 3;
 		}
+		s
 		
 		// Create a new UnfoldingMap to be displayed in this window.  
 		// The 2nd-5th arguments give the map's x, y, width and height
