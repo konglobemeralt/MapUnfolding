@@ -27,7 +27,7 @@ public class HelloWorld extends PApplet
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
 	
 	// IF YOU ARE WORKING OFFLINE: Change the value of this variable to true
-	private static final boolean offline = false;
+	private static final boolean offline = true;
 	
 	/** The map we use to display our home town: La Jolla, CA */
 	UnfoldingMap map1;
@@ -50,7 +50,7 @@ public class HelloWorld extends PApplet
 		// Set a zoom level
 		int zoomLevel = 10;
 		
-		if (offline) {
+		if (offline) {S
 			// If you are working offline, you need to use this provider 
 			// to work with the maps that are local on your computer.  
 			provider = new MBTilesMapProvider(mbTilesString);
@@ -65,14 +65,15 @@ public class HelloWorld extends PApplet
 		// The 6th argument specifies the map provider.  
 		// There are several providers built-in.
 		// Note if you are working offline you must use the MBTilesMapProvider
-		map1 = new UnfoldingMap(this, 50, 50, 350, 500, provider);
-
+		map1 = new UnfoldingMap(this, 45, 50, 350, 500, provider);
+		map2 = new UnfoldingMap(this, 405, 50, 350, 500, provider);
 		// The next line zooms in and centers the map at 
 	    // 32.9 (latitude) and -117.2 (longitude)
 	    map1.zoomAndPanTo(zoomLevel, new Location(32.9f, -117.2f));
-		
+	    map2.zoomAndPanTo(zoomLevel, new Location(57.7518974f, 12.0955692f));
 		// This line makes the map interactive
 		MapUtils.createDefaultEventDispatcher(this, map1);
+		MapUtils.createDefaultEventDispatcher(this, map2);
 		
 		// TODO: Add code here that creates map2 
 		// Then you'll modify draw() below
@@ -84,6 +85,7 @@ public class HelloWorld extends PApplet
 		// So far we only draw map1...
 		// TODO: Add code so that both maps are displayed
 		map1.draw();
+		map2.draw();
 	}
 
 	
